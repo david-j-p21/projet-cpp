@@ -1,27 +1,10 @@
-#pragma once
-
 #include "edge.h"
-#include "graphMA.h"
+#include <iostream>
 #include <string>
-#include <vector>
-#include <unordered_map>
-#include <set>
 
-using namespace std;
+Edge::Edge(std::string a,std::string b,double value):
+        m_a(a), m_b(b), m_value(value){};
 
-class GraphLA{
-    
-    unordered_map<string, vector<Edge>> m_graph; 
-
-    public:
-    GraphLA(string nomFichier);
-    vector<Edge> edges(string headName); //méthode retournant l'arête associée à un sommet donné
-    void represent();
-    GraphMA convertToMA();
-
-    //Deep First Search
-    void dfsRec(string headStart, set<string>& visitedHeads);
-    void dfsIte(string headStart, set<string>& visitedHeads);
-    //Breadth First Search
-    void bfs(string headStart, set<string> visitedHeads);
-};
+void Edge::print(){
+    std::cout << m_a << " " << m_b << " " << m_value << std::endl;
+}
